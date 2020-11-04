@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintDimensionRatio="1"
+            android:layout_margin="24dp"
+            app:actualImageScaleType="focusCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:roundAsCircle="true"
+            android:id="@+id/fotoLoja"
+            android:background="@drawable/company_circle"
+            app:layout_constraintEnd_toStartOf="@id/guideline"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:id="@+id/nomeLoja"
+            android:maxLines="1"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnAvaliar"
+            android:paddingStart="8dp"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"/>
+
+        <TextView
+            android:paddingStart="8dp"
+            android:id="@+id/ordData"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:fontFamily="sans-serif-thin"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintBottom_toBottomOf="@id/nomeLoja"
+            app:layout_constraintTop_toTopOf="@id/nomeLoja"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/btnAvaliar"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:paddingEnd="8dp"/>
+
+
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/cash_usd_outline12dp"
+            android:id="@+id/ordValorTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ordId"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:padding="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            />
+
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/history_12dp"
+            android:id="@+id/ordStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/ordValorTotal"
+            app:layout_constraintStart_toEndOf="@id/guideline"
+            android:padding="4dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            />
+
+        <TextView
+            android:fontFamily="sans-serif-light"
+            android:drawablePadding="8dp"
+            app:drawableStartCompat="@drawable/receipt_12dp"
+            android:padding="4dp"
+            android:id="@+id/ordId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+            app:layout_constraintLeft_toRightOf="@id/guideline"
+            app:layout_constraintTop_toBottomOf="@id/nomeLoja"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAvaliar"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/avaliar"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ordData"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

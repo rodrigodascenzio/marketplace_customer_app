@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="dez_dp">10dp</dimen>
+    <dimen name="vinte_dp">20dp</dimen>
+    <dimen name="zero_dp">0dp</dimen>
+    <dimen name="dois_dp">2dp</dimen>
+    <dimen name="bottom_last_item_margin">8dp</dimen>
+    <dimen name="subcategory_first_item_margin">16dp</dimen>
+    <dimen name="subcategory_first_item_right_margin">8dp</dimen>
+
+
+</resources>

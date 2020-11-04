@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <integer name="rua_max">90</integer>
+    <integer name="bairro_max">90</integer>
+    <integer name="cidade_max">50</integer>
+    <integer name="estado_max">2</integer>
+    <integer name="numero_max">5</integer>
+    <integer name="chat">500</integer>
+    <integer name="valor">8</integer>
+    <integer name="nome_usuario">50</integer>
+    <integer name="observacao">250</integer>
+    <integer name="email">90</integer>
+    <integer name="celular">20</integer>
+    <integer name="codigo">6</integer>
+    <integer name="feedback">1500</integer>
+
+
+</resources>

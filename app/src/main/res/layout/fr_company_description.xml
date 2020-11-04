@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_light">
+
+    <include
+        android:id="@+id/tb_main_top"
+        layout="@layout/toolbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/nested"
+        app:layout_constraintTop_toBottomOf="@id/tb_main_top"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layoutDescription"
+            android:visibility="visible"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nested">
+
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/cardViewLoja"
+                android:layout_margin="12dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintDimensionRatio="1"
+                        android:layout_margin="24dp"
+                        app:actualImageScaleType="focusCrop"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:roundAsCircle="true"
+                        android:id="@+id/fotoLoja"
+                        android:background="@drawable/company_circle"
+                        app:layout_constraintEnd_toStartOf="@id/guideline"/>
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.3"/>
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/nomeLoja"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:padding="8dp"/>
+
+                    <TextView
+                        android:layout_marginStart="8dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawablePadding="8dp"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintStart_toStartOf="@id/guideline"
+                        app:layout_constraintTop_toBottomOf="@id/social"
+                        app:layout_constraintBottom_toTopOf="@id/social"
+                        android:id="@+id/rating"/>
+
+                    <LinearLayout
+                        android:id="@+id/social"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="?attr/actionBarSize"
+                        android:weightSum="3">
+
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_weight="1"
+                            android:id="@+id/site"
+                            android:visibility="gone"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            app:srcCompat="@drawable/earth"
+                            app:tint="@color/colorPrimary"
+                            android:background="@drawable/selector_recycler_view"/>
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:id="@+id/face"
+                            android:visibility="gone"
+                            app:srcCompat="@drawable/facebook"
+                            app:tint="@color/colorPrimary"
+                            android:background="@drawable/selector_recycler_view"/>
+
+                        <ImageView
+                            android:background="@drawable/selector_recycler_view"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="8dp"
+                            android:layout_marginRight="8dp"
+                            android:id="@+id/insta"
+                            android:visibility="gone"
+                            app:tint="@color/colorPrimary"
+                            app:srcCompat="@drawable/instagram"/>
+                    </LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:id="@+id/cardop"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toBottomOf="@id/cardViewLoja">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtDescricao"
+                        android:text="Descrição"
+                        android:layout_margin="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <TextView
+                        android:layout_margin="8dp"
+                        android:paddingBottom="12dp"
+                        android:id="@+id/descricao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtDescricao"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:id="@+id/cardAtendimento"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toBottomOf="@id/cardop">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtAtendimento"
+                        android:text="Formas de atendimento"
+                        android:layout_margin="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <LinearLayout
+                        android:padding="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@id/txtAtendimento">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/opcao1"
+                            android:background="@drawable/num_rating"
+                            app:backgroundTint="@color/colorPrimary"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/background_light"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                            android:drawablePadding="8dp"
+                            app:drawableTint="@color/background_light"
+                            android:layout_marginEnd="12dp"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/opcao2"
+                            android:background="@drawable/num_rating"
+                            app:backgroundTint="@color/colorPrimary"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:textColor="@color/background_light"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                            android:drawablePadding="8dp"
+                            app:drawableTint="@color/background_light"
+                            android:layout_marginEnd="12dp"
+                            />
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:id="@+id/cardHorarios"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toBottomOf="@id/cardAtendimento">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtSchedule"
+                        android:text="Horario de atendimento"
+                        android:layout_margin="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:overScrollMode="never"
+                        android:layout_margin="8dp"
+                        android:id="@+id/recyclerview_schedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtSchedule"/>
+
+                    <TextView
+                        android:layout_margin="8dp"
+                        android:paddingBottom="12dp"
+                        android:id="@+id/emptySchedule"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtSchedule"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:id="@+id/cardEndereco"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toBottomOf="@id/cardHorarios">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtAddress"
+                        android:text="Endereço"
+                        android:layout_margin="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <TextView
+                        android:layout_margin="8dp"
+                        android:paddingBottom="12dp"
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtAddress"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:id="@+id/cardPagamentos"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toBottomOf="@id/cardEndereco"
+                app:layout_constraintBottom_toTopOf="@id/arrumaBug"
+                app:layout_constraintVertical_bias="0.0">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/txtPayment"
+                        android:text="Formas de pagamento"
+                        android:layout_margin="8dp"
+                        android:textColor="@color/colorPrimary"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:overScrollMode="never"
+                        android:layout_margin="8dp"
+                        android:id="@+id/recyclerview_payment"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtPayment"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/arrumaBug"
+                android:layout_width="match_parent"
+                android:layout_height="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/dots"
+        android:background="@color/background_light"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lottie_autoPlay="true"
+        android:visibility="visible"
+        app:lottie_fileName="list_loading.json"
+        app:lottie_loop="true"
+        app:lottie_speed="1.25"/>
+
+    <include
+        layout="@layout/error_layout"
+        android:id="@+id/error_layout"/>
+
+    <include
+        layout="@layout/progress"
+        android:id="@+id/progress"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

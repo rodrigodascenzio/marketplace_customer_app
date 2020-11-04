@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/default_color">
+
+    <include
+        layout="@layout/toolbar"
+        android:id="@+id/tb_main_top"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_main_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/card"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="16dp">
+
+                    <TextView
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/txt"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:text="@string/detalhes_endereco"/>
+
+                    <TextView
+                        app:layout_constraintTop_toBottomOf="@id/txt"
+                        android:id="@+id/txt2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/detalhes_endereco_sub"
+                        android:fontFamily="sans-serif-light"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"/>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:id="@+id/ruaWrap"
+                        android:layout_marginTop="12dp"
+                        android:hint="Rua"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:layout_constraintTop_toBottomOf="@+id/txt2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtRua"
+                            android:layout_marginTop="8dp"
+                            android:maxLength="@integer/rua_max"
+                            android:imeOptions="actionNext"
+                            android:nextFocusRight="@id/edtNumero"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapSentences|text"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/numeroWrap"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ruaWrap"
+                        app:layout_constraintRight_toLeftOf="@id/bairroWrap"
+                        android:hint="Numero">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtNumero"
+                            android:maxEms="5"
+                            android:minEms="5"
+                            android:maxLength="@integer/numero_max"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:inputType="number"
+                            android:imeOptions="actionNext"
+                            android:nextFocusRight="@id/edtBairro"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/bairroWrap"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:hint="Bairro"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:layout_constraintLeft_toRightOf="@id/numeroWrap"
+                        app:layout_constraintTop_toBottomOf="@id/ruaWrap"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtBairro"
+                            android:drawablePadding="8dp"
+                            android:layout_width="match_parent"
+                            android:maxLength="@integer/bairro_max"
+                            android:imeOptions="actionNext"
+                            android:nextFocusRight="@id/edtCidade"
+                            android:layout_height="wrap_content"
+                            android:inputType="textCapSentences|text"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/cidadeWrap"
+                        android:layout_marginTop="8dp"
+                        android:hint="Cidade"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/numeroWrap"
+                        app:layout_constraintRight_toLeftOf="@id/estadoWrap">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtCidade"
+                            android:drawablePadding="8dp"
+                            android:maxLength="@integer/bairro_max"
+                            android:imeOptions="actionNext"
+                            android:nextFocusRight="@id/edtEstado"
+                            android:inputType="textCapSentences|text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        app:layout_constraintLeft_toRightOf="@id/cidadeWrap"
+                        app:layout_constraintTop_toBottomOf="@id/numeroWrap"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="8dp"
+                        android:id="@+id/estadoWrap"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Estado">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtEstado"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:maxEms="5"
+                            android:maxLength="2"
+                            android:minEms="5"
+                            android:inputType="textCapCharacters"
+                            />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/descWrap"
+                        android:layout_marginTop="8dp"
+                        android:hint="Complemento"
+                        app:counterMaxLength="250"
+                        app:counterEnabled="true"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/cidadeWrap">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtComplemento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLength="@integer/observacao"
+                            android:inputType="textCapSentences|text"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+        <Button
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card"
+            app:layout_constraintVertical_bias="1.0"
+            android:id="@+id/btnCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="@string/btnSalvar" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <include
+        layout="@layout/progress"
+        android:id="@+id/progress"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

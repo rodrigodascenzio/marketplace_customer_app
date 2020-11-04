@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#FF585D</color>
+    <color name="colorPrimaryDark">#FF585D</color>
+    <color name="primary_light">#ff8c8a</color>
+    <color name="empty_photo">#D3D3D3</color>
+    <color name="colorAccent">#FF585D</color>
+    <color name="primary_text">#212121</color>
+    <color name="secondary_text">#484848</color>
+    <color name="white">#FFFFFF</color>
+    <color name="default_color">#FAFAFA</color>
+    <color name="divider">#BDBDBD</color>
+    <color name="blue_light">#0091ea</color>
+    <color name="green_light">#bef67a</color>
+    <color name="green_dark">#8bc34a</color>
+    <color name="black60PORCENTO">#5E000000</color> <!-- 99 is for alpha and others pairs zero's are for R G B -->
+    <color name="branco_light">#ffffffff</color>
+    <color name="background_light">#ffffffff</color>
+    <color name="shadow_color">#D3D3D3</color>
+    <color name="shadow_color2">#E0E0E0</color>
+    <color name="shadow_f5">#F5F5F5</color>
+    <color name="balaoRemetente">#dbf9c4</color>
+    <color name="orange_light">#ff8c8a</color>
+
+</resources>

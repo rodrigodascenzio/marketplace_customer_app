@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_color">
+
+    <include
+        android:id="@+id/tb_main_top"
+        layout="@layout/toolbar"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/nested"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_main_top">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/nested">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewLoja"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:paddingBottom="12dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/chat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:text="@string/chat"
+                        app:icon="@drawable/chat_outline"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        app:layout_constraintVertical_bias="1"
+                        app:layout_constraintTop_toBottomOf="@id/nomeLoja"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent" />
+
+                    <TextView
+                        android:visibility="gone"
+                        android:textColor="@color/background_light"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintDimensionRatio="1"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:id="@+id/chatBadge"
+                        android:background="@drawable/circle_qtd_cart"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        app:layout_constraintLeft_toLeftOf="@id/chat"
+                        app:layout_constraintTop_toTopOf="@id/chat"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintVertical_bias="0.2"/>
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/fotoLoja"
+                        android:background="@drawable/company_circle"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        app:actualImageScaleType="focusCrop"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1"
+                        android:layout_margin="24dp"
+                        app:layout_constraintEnd_toStartOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:roundAsCircle="true" />
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@+id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.3" />
+
+                    <TextView
+                        android:id="@+id/nomeLoja"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/ordId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/receipt_12dp"
+                        android:drawablePadding="8dp"
+                        android:padding="4dp"
+                        android:textAllCaps="true"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintTop_toBottomOf="@id/nomeLoja" />
+
+                    <TextView
+                        android:id="@+id/ordData"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/calendar_12dp"
+                        android:drawablePadding="8dp"
+                        android:padding="4dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        app:layout_constraintStart_toEndOf="@id/guideline"
+                        app:layout_constraintTop_toBottomOf="@id/ordId" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+            <View
+                android:id="@+id/viewCardLoja"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                app:layout_constraintTop_toBottomOf="@id/cardViewLoja" />
+
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBarStatusInderterminate"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewCardLoja" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/progressBarStatus"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:max="3"
+                android:progress="0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewCardLoja" />
+
+            <TextView
+                android:id="@+id/ordStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progressBarStatus" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ageCancelar"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="12dp"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:text="@string/is_cancelar"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ordStatus" />
+
+
+            <View
+                android:id="@+id/viewPedido"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/ageCancelar" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardop"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintTop_toBottomOf="@id/viewPedido">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <androidx.constraintlayout.widget.Guideline
+                        android:id="@id/guideline"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintGuide_percent="0.5" />
+
+                    <TextView
+                        android:id="@+id/nome"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/servico"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/servico"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:padding="8dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/nome" />
+
+                    <TextView
+                        android:id="@+id/preco"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/cash_usd_outline"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        android:textColor="@color/green_dark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/guideline"
+                        app:layout_constraintTop_toBottomOf="@id/ageHoraInicio" />
+
+                    <TextView
+                        android:id="@+id/dataAge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/calendar_24dp"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        app:layout_constraintEnd_toEndOf="@id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/servico" />
+
+                    <TextView
+                        android:id="@+id/ageHoraInicio"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/calendar_clock24dp"
+                        android:drawablePadding="8dp"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:padding="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/guideline"
+                        app:layout_constraintTop_toBottomOf="@id/servico" />
+
+                    <TextView
+                        android:id="@+id/ageFuncionario"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:drawableStartCompat="@drawable/datail_card_person"
+                        android:drawablePadding="8dp"
+                        android:ellipsize="end"
+                        android:fontFamily="sans-serif-light"
+                        android:gravity="center_vertical"
+                        android:maxLines="1"
+                        android:padding="12dp"
+                        app:layout_constraintEnd_toStartOf="@+id/guideline"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ageHoraInicio" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardviewEndereco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardop">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/domicilioOuEstabelecimento"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center|start"
+                        android:text="@string/endereco_atendimento"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                        android:textColor="@color/colorPrimary"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/txtEndereco"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:padding="8dp"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/domicilioOuEstabelecimento" />
+
+                    <TextView
+                        android:text="ir pelo maps"
+                        android:id="@+id/txtMaps"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="sans-serif-light"
+                        android:layout_marginEnd="8dp"
+                        android:textColor="@color/secondary_text"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/txtEndereco"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/obs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/border_obs_produto"
+                app:drawableStartCompat="@drawable/comment_text_outline"
+                android:drawablePadding="12dp"
+                android:maxLength="200"
+                android:padding="8dp"
+                android:textColorHint="@color/shadow_color"
+                android:visibility="gone"
+                app:layout_constraintTop_toBottomOf="@id/cardviewEndereco" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/meioPagamento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:background="@color/shadow_color"
+                android:minHeight="?attr/actionBarSize"
+                android:orientation="horizontal"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/obs">
+
+                <TextView
+                    android:id="@+id/meioPagamentoEscolhido"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    app:drawableStartCompat="@drawable/receipt"
+                    android:drawablePadding="12dp"
+                    android:gravity="center_vertical"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Overline"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/viewTop"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/background_light"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/meioPagamento" />
+
+            <TextView
+                android:id="@+id/subtotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_f5"
+                android:padding="8dp"
+                android:text="@string/subtotal"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintEnd_toStartOf="@id/resultSubtotal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewTop" />
+
+            <TextView
+                android:id="@+id/resultSubtotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_f5"
+                android:padding="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                app:layout_constraintBottom_toTopOf="@id/subtotal"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtotal" />
+
+            <TextView
+                android:id="@+id/desconto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_f5"
+                android:padding="8dp"
+                android:text="@string/desconto"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:visibility="gone"
+                app:layout_constraintEnd_toStartOf="@id/resulDesconto"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/subtotal" />
+
+            <TextView
+                android:id="@+id/resulDesconto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_f5"
+                android:padding="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/desconto"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/desconto" />
+
+            <View
+                android:id="@+id/view2"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/background_light"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/desconto" />
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_f5"
+                android:padding="8dp"
+                android:text="@string/total"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                app:layout_constraintEnd_toStartOf="@id/resultTotal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view2" />
+
+            <TextView
+                android:id="@+id/resultTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/shadow_f5"
+                android:padding="8dp"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/green_dark"
+                app:layout_constraintBottom_toTopOf="@id/total"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total" />
+
+            <View
+                android:id="@+id/viewBottom"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:background="@color/background_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total" />
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/ageAvaliar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_margin="16dp"
+                android:text="@string/avaliar"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/viewBottom" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/dots"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/background_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tb_main_top"
+        app:lottie_autoPlay="true"
+        app:lottie_fileName="list_loading.json"
+        app:lottie_loop="true"
+        app:lottie_speed="1.25" />
+
+    <include
+        android:id="@+id/error_layout"
+        layout="@layout/error_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_lojas"
+        android:icon="@drawable/ic_stores_24px"
+        android:title="Inicio"/>
+
+    <item
+        android:id="@+id/navigation_coupon"
+        android:icon="@drawable/ticket_outline"
+        android:title="Cupons"/>
+
+    <item
+        android:id="@+id/navigation_pedidos"
+        android:icon="@drawable/receipt"
+        android:title="Pedidos"/>
+
+    <item
+        android:id="@+id/navigation_perfil"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="Perfil"/>
+
+</menu>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="5dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintDimensionRatio="1"
+                    android:layout_margin="24dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:roundAsCircle="true"
+                    android:id="@+id/fotoLoja"
+                    android:background="@drawable/company_circle"
+                    app:layout_constraintEnd_toStartOf="@id/guideline"/>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.3"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nomeLoja"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="@color/secondary_text"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/arrow"
+                    android:paddingTop="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="8dp"
+                    android:paddingStart="4dp"/>
+
+            <TextView
+                android:drawablePadding="8dp"
+                app:drawableStartCompat="@drawable/cash_usd_outline12dp"
+                android:id="@+id/desconto"
+                android:textAllCaps="true"
+                android:fontFamily="sans-serif-light"
+                app:layout_constraintTop_toBottomOf="@id/nomeLoja"
+                app:layout_constraintStart_toEndOf="@id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="4dp"
+                android:gravity="center_vertical"
+                android:textColor="@color/green_dark"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                />
+
+                <TextView
+                    android:drawablePadding="8dp"
+                    app:drawableStartCompat="@drawable/ic_schedule_black_12dp"
+                    android:padding="4dp"
+                    android:id="@+id/expira"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:fontFamily="sans-serif-light"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    app:layout_constraintStart_toEndOf="@id/guideline"
+                    app:layout_constraintTop_toBottomOf="@id/desconto"
+                    app:layout_constraintVertical_bias="1.0"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/arrow"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            app:drawableStartCompat="@drawable/ic_keyboard_arrow_right_black_24dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="8dp"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
